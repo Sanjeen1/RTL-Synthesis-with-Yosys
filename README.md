@@ -38,4 +38,8 @@ The optimized logic is mapped to the available standard cells in the target tech
 4. Netlist Generation:
 Finally, the tool generates the gate-level netlist that represents the synthesized circuit. 
 
+synthesis (Yosys)
+→ Generates a gate-level netlist (mapped to standard cells).
+❌ Yosys does not generate SDF.yosys does not read sdc file.
+
 Synthesis is done with open source tool yosys with open source Sky130/Nangate45 standard cells for 32 bit ALU and c17 benchmark circuit.
