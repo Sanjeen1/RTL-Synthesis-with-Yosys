@@ -1,0 +1,16 @@
+In Yosys, the command synth is a convenience command that performs default RTL-to-gate-level synthesis in a generic, technology-independent way. Think of it as a shortcut.
+
+No standard cell mapping or liberty file use happens in synth — it keeps logic in a generic format (good for viewing and analysis).
+
+When to Use synth:
+You want a quick RTL synthesis
+You’re preparing for mapping with ABC later
+You don’t want to deal with technology libraries yet
+
+
+THE bellow is the script (Just good for viewing the schematic without standard libary cells and mapping )- 
+  read_verilog alu.v
+  hierarchy -top alu
+  synth -top alu
+  show
+

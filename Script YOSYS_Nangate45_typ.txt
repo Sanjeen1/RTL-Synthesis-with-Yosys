@@ -1,0 +1,53 @@
+read_liberty -lib -ignore_miss_dir -setattr blackbox /home/san/pro/Nangate45_typ.lib
+
+read_verilog /home/san/pro/alu.v
+
+hierarchy -check -top alu
+
+proc
+
+opt
+
+fsm
+
+opt
+
+memory
+
+opt
+
+techmap
+
+opt
+
+dfflibmap -liberty /home/san/pro/Nangate45_typ.lib
+
+opt
+
+abc -liberty /home/san/pro/Nangate45_typ.lib
+
+flatten
+
+setundef -zero
+
+clean -purge
+
+iopadmap -outpad BUF_X2 A:Z -bits        //to add buffer at the output if dont want buffer skip it
+
+opt
+
+clean
+
+stat -liberty /home/san/pro/Nangate45_typ.lib
+
+rename -enumerate
+
+write_verilog -noattr alu_netlist_yosys.v
+
+write_blif  -buf BUF_X2 A Z alu_mapped_withbuffer.blif
+
+show -stretch
+
+
+
+

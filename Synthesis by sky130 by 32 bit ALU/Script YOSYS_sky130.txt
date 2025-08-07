@@ -1,0 +1,52 @@
+read_liberty -lib -ignore_miss_dir -setattr blackbox /home/san/pro/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog /home/san/pro/alu.v
+
+hierarchy -check -top alu
+
+proc
+
+opt
+
+fsm
+
+opt
+
+memory
+
+opt
+
+techmap
+
+opt
+
+dfflibmap -liberty /home/san/pro/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+opt
+
+abc -liberty /home/san/pro/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+flatten
+
+setundef -zero
+
+clean -purge
+
+opt
+
+clean
+
+stat -liberty /home/san/pro/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+rename -enumerate
+
+write_verilog -noattr alu_netlist_yosys.v
+
+write_blif -buf sky130_fd_sc_hd__buf_2 A Z alu_mapped_withbuffer.blif
+
+
+show -stretch
+
+
+
+
