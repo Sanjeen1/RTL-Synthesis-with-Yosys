@@ -1,5 +1,5 @@
 # RTL-Synthesis-with-Yosys
-RTL-to-gate-level synthesis and STA using open source Yosys tool a on a 32 bit ALU and c17 benchmark circuits with opensource Sky130/Nangate45 standard cells.
+RTL-to-gate-level synthesis using open source Yosys tool on a 32 bit ALU and c17 benchmark circuits with opensource Sky130/Nangate45 standard cells.
 
 Synthesis is the process of converting a Register Transfer Level (RTL) hardware description (typically written in Verilog or VHDL) into a gate-level netlist consisting of logic gates and flip-flops from a specific technology library.
 
